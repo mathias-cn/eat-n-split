@@ -5,7 +5,7 @@ interface AddFriendInputElementProps {
     inputType: string
     inputName: string
     inputValue: string
-    onChangeHandler: (e: string) => void
+    onChangeHandler: (e: string | number) => void
 }
 
 export function AddFriendInputElement({ labelText, inputName, inputType, inputValue, onChangeHandler }: AddFriendInputElementProps) {

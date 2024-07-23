@@ -8,16 +8,16 @@ interface AddFriendFormProps {
 }
 
 export function AddFriendForm({ randomUrl, addFriendHandler }: AddFriendFormProps) {
-    const [newFriendName, setNewFriendName] = useState("")
-    const [newFriendImageUrl, setNewFriendImageUrl] = useState(randomUrl)
+    const [newFriendName, setNewFriendName] = useState<string | number>("")
+    const [newFriendImageUrl, setNewFriendImageUrl] = useState<string | number>(randomUrl)
 
     return (
-        <form onSubmit={(ev) => addFriendHandler(ev, newFriendName, newFriendImageUrl)} className="bg-orange-100 rounded-lg p-4 space-y-3 mt-3">
+        <form onSubmit={(ev) => addFriendHandler(ev, newFriendName.toString(), newFriendImageUrl.toString())} className="bg-orange-100 rounded-lg p-4 space-y-3 mt-3">
             <AddFriendInputElement 
                 labelText="🙋Friend name"
                 inputName="name"
                 inputType="text"
-                inputValue={newFriendName}
+                inputValue={newFriendName.toString()}
                 onChangeHandler={setNewFriendName}
             />
             
@@ -25,7 +25,7 @@ export function AddFriendForm({ randomUrl, addFriendHandler }: AddFriendFormProp
                 labelText="📸Image URL"
                 inputName="imageUrl"
                 inputType="text"
-                inputValue={newFriendImageUrl}
+                inputValue={newFriendImageUrl.toString()}
                 onChangeHandler={setNewFriendImageUrl}
             />
 
