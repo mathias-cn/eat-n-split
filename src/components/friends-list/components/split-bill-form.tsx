@@ -27,6 +27,10 @@ export function SplitBillForm({ selectedFriend, changeBalance }: SplitBillFormPr
     const [yourExpense, setYourExpense] = useState<string | number>("")
     let friendExpense: string | number = ""
 
+    function handleMyExpense(e: string | number) {
+         if(Number(e) > Number(bill)) return
+         setYourExpense(Number(e))
+    }
 
     if(Number(bill) && Number(yourExpense)) {
         friendExpense = (Number(bill) - Number(yourExpense))
@@ -50,7 +54,7 @@ export function SplitBillForm({ selectedFriend, changeBalance }: SplitBillFormPr
                     inputName="myExpense"
                     inputType="number"
                     inputValue={yourExpense}
-                    onChangeHandler={setYourExpense}
+                    onChangeHandler={handleMyExpense}
                     max={bill}
                 />
                 

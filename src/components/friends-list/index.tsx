@@ -143,6 +143,7 @@ export function FriendsList() {
             <SplitBillForm 
                 selectedFriend={selectedFriend}
                 changeBalance={changeBalance}
+                key={selectedFriend?.id}
             />
         )}
         </>
